@@ -1,6 +1,7 @@
 from pyautocad import *
 from tkinter import *
 
+
 class GUI:
 
     def __init__(self, window) -> None:
@@ -96,7 +97,7 @@ def main():
     print('|D| drawing octants')
 
 
-def drawSquare(acad, x1, y1, x2, y2):
+def draw_square(acad, x1, y1, x2, y2):
     acad.model.addLine(APoint(x1, y1), APoint(x1, y2))
     acad.model.addLine(APoint(x1, y2), APoint(x2, y2))
     acad.model.addLine(APoint(x2, y2), APoint(x2, y1))
@@ -106,7 +107,7 @@ def drawSquare(acad, x1, y1, x2, y2):
 def octant(acad, polyline, curSquare, rootcoords, cursplit, reqsplit):
     color = whatcolor(acad, polyline, rootcoords, curSquare)
     if color == 3:
-        drawSquare(acad, curSquare[0], curSquare[1], curSquare[2], curSquare[3])
+        draw_square(acad, curSquare[0], curSquare[1], curSquare[2], curSquare[3])
     if color == 2:
         cursplit += 1
         if cursplit < reqsplit:
